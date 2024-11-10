@@ -26,6 +26,15 @@
     document.getElementById('background-music').addEventListener('pause', function() {
       localStorage.setItem("musicPlaying", "false");
     });
+     const lastTime = localStorage.getItem('background-music');
+  if (lastTime) {
+    audio.currentTime = lastTime;
+  }
+
+  
+  window.addEventListener('beforeunload', () => {
+    localStorage.setItem('background-music', audio.currentTime);
+  });
   </script>
 </body>
 </html>
