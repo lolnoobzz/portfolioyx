@@ -67,8 +67,7 @@ nav a.active{
 @media(max-width:995px){
     nav{
         position: absolute;
-        display: none;
-        top: 0;
+        top: 100%;
         right: 0;
         width: 40%;
         border-left: 3px solid #b74b4b;
@@ -86,7 +85,7 @@ nav a.active{
     nav a{
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 3rem;
     }
 
     nav a:hover,
@@ -126,7 +125,7 @@ span{
 
 .home-content h3{
     font-size: 4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     font-weight: 700;
 }
 
@@ -196,7 +195,7 @@ span{
 }
 
 .typing-text{
-    font-size: 34px;
+    font-size: 1.6rem;
     font-weight: 600;
     min-width: 280px;
 }
