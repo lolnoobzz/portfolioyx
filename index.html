@@ -20,25 +20,6 @@
             <a href="contact.html" >Contact</a>
         </nav>
     </header>
-    <audio id="background-music" autoplay loop>
-  <source src="bgmm.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-    </audio>
-    <script>
-
-  if (localStorage.getItem("musicPlaying") === "true") {
-    document.getElementById('background-music').play();
-  }
-
-
-  document.getElementById('background-music').addEventListener('play', function() {
-    localStorage.setItem("musicPlaying", "true");
-  });
-
-  document.getElementById('background-music').addEventListener('pause', function() {
-    localStorage.setItem("musicPlaying", "false");
-  });
-</script>
     <section class="home">
         <div class="home-img">
             <img src="me1.png" alt="">
