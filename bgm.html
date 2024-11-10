@@ -17,24 +17,24 @@
       audio.muted = false; 
       audio.play(); 
     }
-
+     const lastTime = localStorage.getItem('background-music-time');
+    if (lastTime) {
+      audio.currentTime = parseFloat(lastTime);
+    }
     
-    document.getElementById('background-music').addEventListener('play', function() {
+    audio.addEventListener('play', () => {
       localStorage.setItem("musicPlaying", "true");
+      audio.muted = false;
     });
 
-    document.getElementById('background-music').addEventListener('pause', function() {
+    audio.addEventListener('pause', () => {
       localStorage.setItem("musicPlaying", "false");
     });
-     const lastTime = localStorage.getItem('background-music');
-  if (lastTime) {
-    audio.currentTime = lastTime;
-  }
 
-  
-  window.addEventListener('beforeunload', () => {
-    localStorage.setItem('background-music', audio.currentTime);
-  });
+    
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('background-music-time', audio.currentTime);
+    });
   </script>
 </body>
 </html>
