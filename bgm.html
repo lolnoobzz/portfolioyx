@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Music</title>
+</head>
+<body>
+  
+  <audio id="background-music" autoplay loop muted>
+    <source src="bgmm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+   
+    if (localStorage.getItem("musicPlaying") === "true") {
+      document.getElementById('background-music').muted = false;
+      document.getElementById('background-music').play();
+    }
+
+ 
+    document.getElementById('background-music').addEventListener('play', function() {
+      localStorage.setItem("musicPlaying", "true");
+    });
+
+    document.getElementById('background-music').addEventListener('pause', function() {
+      localStorage.setItem("musicPlaying", "false");
+    });
+  </script>
+</body>
+</html>
