@@ -10,5 +10,18 @@
     <source src="bgmm.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  <script>
+    const audio = document.getElementById('background-music');
+
+   
+    const lastTime = sessionStorage.getItem('bgm-time');
+    if (lastTime) {
+      audio.currentTime = parseFloat(lastTime);
+    }
+
+    setInterval(() => {
+      sessionStorage.setItem('bgm-time', audio.currentTime);
+    }, 1000);
+  </script>
 </body>
 </html>
