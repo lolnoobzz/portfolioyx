@@ -14,13 +14,20 @@
     const audio = document.getElementById('background-music');
 
    
-    const lastTime = sessionStorage.getItem('bgm-time');
+    const lastTime = localStorage.getItem('bgm-time');
     if (lastTime) {
       audio.currentTime = parseFloat(lastTime);
     }
 
+    audio.addEventListener('timeupdate', () => {
+      localStorage.setItem('bgm-time', audio.currentTime);
+    });
+
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('bgm-time', audio.currentTime);
+    });
     setInterval(() => {
-      sessionStorage.setItem('bgm-time', audio.currentTime);
+      localStorage.setItem('bgm-time', audio.currentTime);
     }, 1000);
   </script>
 </body>
