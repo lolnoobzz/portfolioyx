@@ -5,37 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Background Music</title>
 </head>
-<body>
-  
-  <audio id="background-music" autoplay loop muted>
+<body>  
+  <audio id="background-music" autoplay loop>
     <source src="bgmm.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <script>
-   if (localStorage.getItem("musicPlaying") === "true") {
-      const audio = document.getElementById('background-music');
-      audio.muted = false; 
-      audio.play(); 
-    }
-     const lastTime = localStorage.getItem('background-music-time');
-    if (lastTime) {
-      audio.currentTime = parseFloat(lastTime);
-    }
-    
-    audio.addEventListener('play', () => {
-      localStorage.setItem("musicPlaying", "true");
-      audio.muted = false;
-    });
-
-    audio.addEventListener('pause', () => {
-      localStorage.setItem("musicPlaying", "false");
-    });
-
-    
-    window.addEventListener('beforeunload', () => {
-      localStorage.setItem('background-music-time', audio.currentTime);
-    });
-  </script>
-  <script src="bgms.js"></script>
 </body>
 </html>
